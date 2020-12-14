@@ -9,7 +9,7 @@ const app = express()
 app.use(bodyParser.json());
 app.use(cors());
 
-const port = 5000
+const port = 5000;
 
 
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -54,6 +54,4 @@ client.connect(err => {
 
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-})
+app.listen(process.env.PORT || port)
